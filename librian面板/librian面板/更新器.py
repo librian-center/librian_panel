@@ -28,7 +28,7 @@ def 自我更新():
         except FileNotFoundError:
             raise FileNotFoundError('需要一個Git。更新功能需要你有Git命令可用，或者使用release版本中嵌入的Git。')
     subprocess.run(
-        [str(git路徑), 'pull', 'origin', 'master'],
+        [str(git路徑), 'pull', 'origin', 'slave'],
         shell=True,
         check=True,
         stderr=subprocess.PIPE,
