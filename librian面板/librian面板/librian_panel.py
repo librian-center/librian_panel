@@ -10,8 +10,11 @@ import subprocess
 from pathlib import Path
 
 import yaml
+import librian
 import dulwich.repo
+
 from rimo_utils.cef_tools.vue_ob import vue_ob
+
 try:
     import wx
     import rimo_utils.cef_tools.wxcef as wxcef
@@ -19,6 +22,7 @@ except ModuleNotFoundError:
     logging.warning('沒能import wx，改爲使用pyside2。')
     import rimo_utils.cef_tools.fake_wx as wx
     import rimo_utils.cef_tools.qtcef as wxcef
+    
 
 from . import 更新器
 
@@ -52,6 +56,7 @@ class 山彥(vue_ob):
         repo = dulwich.repo.Repo('.')
         最後提交unix時間 = repo[repo.head()].author_time
         self.vue.最後提交時間 = datetime.datetime.fromtimestamp(最後提交unix時間).strftime('%y-%m-%d')
+        self.vue.librian版本 = librian.__version__
 
     def js(self, x):
         self.窗口.browser.ExecuteJavascript(x)
