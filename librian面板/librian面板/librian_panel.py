@@ -136,7 +136,7 @@ class 山彥(vue_ob):
                 [sys.executable, '-m', 'librian', '--project', self.vue.工程路徑, '--編寫模式', 'True'],
                 shell=True
             )
-            劇本文件名 = self.vue.工程路徑 / self.當前工程配置['劇本入口']
+            劇本文件名 = Path(self.vue.工程路徑) / self.當前工程配置['劇本入口']
             if 查詢文件打開方式(劇本文件名):
                 os.system(f'"{劇本文件名}"')
             else:
