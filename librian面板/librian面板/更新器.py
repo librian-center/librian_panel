@@ -37,7 +37,7 @@ def 自我更新():
 
     if release信息.是release:
         subprocess.run(
-            [str(嵌入的python路徑), '-m', 'pip', 'install', '-r', 'requirements_release.txt'],
+            [str(嵌入的python路徑), '-m', 'pip', 'install', '-r', 'requirements.txt'],
             shell=True,
             check=True,
             stderr=subprocess.PIPE,
