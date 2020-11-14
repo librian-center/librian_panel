@@ -100,7 +100,7 @@ class 山彥(vue_ob):
             self.同調(工程路徑)
         else:
             with wx.DirDialog(self.窗口, '选择文件夹') as dlg:
-                dlg.SetPath(str(此處.resolve()))
+                dlg.SetPath(str((此處/'../../project').resolve()))
                 if dlg.ShowModal() == wx.ID_OK:
                     self.同調(dlg.GetPath())
 
@@ -185,7 +185,7 @@ class 山彥(vue_ob):
     def 瀏覽器打開(self, s):
         import webbrowser
         webbrowser.open(s)
-    
+
     def 自我更新(self, callback):
         def t():
             try:
@@ -202,9 +202,9 @@ class 山彥(vue_ob):
 
 
 app, 瀏覽器 = wxcef.group(
-    title='librian面板', 
+    title='librian面板',
     url=f'file:///{(此處/"面板前端/面板.html").resolve()}',
-    icon=此處 / 'librian.ico', 
+    icon=此處 / 'librian.ico',
     size=(960, 540),
 )
 真山彥 = 山彥(app.frame)
