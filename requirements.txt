@@ -1,4 +1,4 @@
-librian>=0.0.4
+librian>=2.0.1
 PyYAML>=5.2
 cefpython3>=66.0
 wxPython>=4.0.4
