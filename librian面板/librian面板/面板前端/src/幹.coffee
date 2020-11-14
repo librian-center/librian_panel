@@ -101,12 +101,14 @@ $ ->
         返回: ->
             window.返回()
     
-    $('body').on 'click','a', (event)->
+    自動響應 = (event)->
         id = $(this).attr('id')
         if id
             響應表[id]()
         else
             console.log '沒有可響應的id'
+    $('body').on 'click', 'a', 自動響應
+    $('body').on 'click', 'button', 自動響應
 
     window.進入工程 = ->
         $('.頁').hide()

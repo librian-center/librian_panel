@@ -1,5 +1,6 @@
-librian>=0.0.3
+librian>=0.0.4
 PyYAML>=5.2
 cefpython3>=66.0
 wxPython>=4.0.4
 dulwich>=0.19.14
+pywin32>=300

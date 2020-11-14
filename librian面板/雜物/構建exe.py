@@ -20,5 +20,5 @@ def 構建工程(工程路徑, 標題, 圖標=None):
     if os.path.isfile(f'_{標題}.kuzu'):
         win32api.SetFileAttributes(f'_{標題}.kuzu', win32con.FILE_ATTRIBUTE_NORMAL)
     with open(f'_{標題}.kuzu', 'w') as f:
-        f.write(f'-m librian.librian本體.librian --project "{os.path.relpath(工程路徑, start=路徑.librian外層)}"')
+        f.write(f'-m librian --project "{工程路徑}"')
     win32api.SetFileAttributes(f'_{標題}.kuzu', win32con.FILE_ATTRIBUTE_HIDDEN)

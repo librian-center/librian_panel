@@ -43,10 +43,10 @@ def 自我更新():
             stderr=subprocess.PIPE,
             cwd=librian面板外層,
         )
-        build文件更新()
 
 
-def build文件更新(): 
+# 已廢棄，現在「librian面板.exe」也從git更新。
+def build文件更新():
     def md5(fname):
         hash_md5 = hashlib.md5()
         with open(fname, 'rb') as f:

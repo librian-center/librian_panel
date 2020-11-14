@@ -166,7 +166,7 @@ class 山彥(vue_ob):
             subprocess.Popen(['xdg-open', self.vue.工程路徑], shell=False)
 
     def 生成exe(self):
-        from librian.雜物 import 構建exe
+        from librian面板.雜物 import 構建exe
         if self.當前工程配置["圖標"]:
             構建exe.構建工程(self.vue.工程路徑, self.當前工程配置["標題"], f'{self.vue.工程路徑}/{self.當前工程配置["圖標"]}')
         else:
