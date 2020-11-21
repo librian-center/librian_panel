@@ -1,10 +1,6 @@
 import logging
 import subprocess
-import base64
-import hashlib
 from pathlib import Path
-
-import requests
 
 from . import release信息
 
@@ -43,32 +39,3 @@ def 自我更新():
             stderr=subprocess.PIPE,
             cwd=librian面板外層,
         )
-
-
-# 已廢棄，現在「librian面板.exe」也從git更新。
-def build文件更新():
-    def md5(fname):
-        hash_md5 = hashlib.md5()
-        with open(fname, 'rb') as f:
-            for chunk in iter(lambda: f.read(4096), b""):
-                hash_md5.update(chunk)
-        return base64.b64encode(hash_md5.digest()).decode('utf-8')
-
-    def 下載(文件名, 網址):
-        r = requests.get(網址)
-        with open(文件名, 'wb') as f:
-            f.write(r.content)
-
-    文件表 = {
-        'Librian面板.exe': 'https://rimosto-cdn.azureedge.net/librian/Librian面板.exe'
-    }
-    for 文件名, 網址 in 文件表.items():
-        文件真名 = librian面板外層 / 文件名
-        if 文件真名.is_file():
-            本地md5 = md5(文件真名)
-            在線md5 = requests.head(網址).headers['Content-MD5']
-            if 本地md5 == 在線md5:
-                continue
-            logging.warning(f'{文件名}過期了。')
-        下載(文件名, 網址)
-        logging.warning(f'下載{文件名}。')
